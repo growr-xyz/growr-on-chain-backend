@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "e3dac115-95e4-4986-aab0-04c5ac64e0f8",
+		"name": "bankohipotekario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getbanks",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/banks",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"banks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBankProducts",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/banks/{{BANK_ID}}/products",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"banks",
+						"{{BANK_ID}}",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set('access_token', jsonData.token)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/my/logins/direct",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"my",
+						"logins",
+						"direct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginAppOwner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set('access_token', jsonData.token)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username=varbanassi123, password=!Gr3ws0m3, consumer_key={{consumer_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/my/logins/direct",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"my",
+						"logins",
+						"direct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set('user_id', jsonData.user_id)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/users/current/user_id",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"users",
+						"current",
+						"user_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserCollections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// var jsonData = pm.response.json();",
+							"// pm.environment.set('collection_id', jsonData.collection_id)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/my/api-collections",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"my",
+						"api-collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accounts held",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"let accountIds = jsonData.accounts.map(a => a.id)",
+							"",
+							"console.log(accountIds[0])",
+							"",
+							"pm.environment.set('accountId', accountIds[0])",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/banks/{{BANK_ID}}/accounts-held",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"banks",
+						"{{BANK_ID}}",
+						"accounts-held"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/banks/{{BANK_ID}}/accounts/{{accountId}}/balances",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"banks",
+						"{{BANK_ID}}",
+						"accounts",
+						"{{accountId}}",
+						"balances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check available funds",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "DirectLogin",
+						"value": "username={{username}}, password={{password}}, consumer_key={{consumer_key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "DirectLogin",
+						"value": "token={{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{OBP-HOST}}/obp/v4.0.0/banks/{{BANK_ID}}/product-collections",
+					"host": [
+						"{{OBP-HOST}}"
+					],
+					"path": [
+						"obp",
+						"v4.0.0",
+						"banks",
+						"{{BANK_ID}}",
+						"product-collections"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
