@@ -7,6 +7,11 @@ enum MaritalStatusEnum {
   NOT_SAYING
 }
 
+enum BankOperationsEnum {
+  LOGIN,
+  EVALUATION
+}
+
 type User {
   _id: ID!,
   fullName: String!,
@@ -107,6 +112,14 @@ type Wallet {
   user: User,
 }
 
+type BankMessage {
+  bank: String!,
+  operation: BankOperationsEnum!,
+  success: Boolean!,
+  payload: [String]
+  error: [String],
+}
+
 type RootQuery {
   wallet(address: String!): Wallet!
   user(id: ID!): User!
@@ -114,18 +127,22 @@ type RootQuery {
   loan(id: ID!): Loan!
 }
 
+type Status {
+  success: Boolean!
+}
+
 type RootMutation {
   createWallet(newWallet: WalletInput!): Wallet!
   updateUser(userData: UserInput!, address: String!): User!
   updateGoal(goalData: GoalInput, userId: ID!): Goal!
-  achieveGoal(id: ID!): Goal!,
+  achieveGoal(id: ID!): Goal!
   updateLoan(loanData: LoanInput!, goalId: ID!): Loan!
+  connectBank(username: String!, password: String!): Status!
 }
 
 type Subscription {
-  user: User!
+  bank: BankMessage!
 }
-
 
 schema {
   query: RootQuery,

@@ -1,7 +1,7 @@
 const { pubsub } = require('../helper');
 module.exports = {
   Subscription: {
-    user: {
+    bank: {
       subscribe(parent, args, ctx, info) {
         return pubsub.asyncIterator('userTopic') //Topic
       }
