@@ -1,0 +1,31 @@
+{
+  "name": "growr-on-chain-backend",
+  "version": "0.0.1",
+  "description": "growr-on-chain-backend for el savlador bankathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/growr-xyz/growr-on-chain-backend.git"
+  },
+  "keywords": [
+    "blockchain",
+    "bitcion",
+    "banking"
+  ],
+  "author": "growr.xyz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/growr-xyz/growr-on-chain-backend/issues"
+  },
+  "homepage": "https://github.com/growr-xyz/growr-on-chain-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^6.0.14"
+  }
+}
