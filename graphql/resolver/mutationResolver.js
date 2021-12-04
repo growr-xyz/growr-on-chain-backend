@@ -3,6 +3,7 @@ const walletModel = require('../../model/wallet')
 const goalModel = require('../../model/goal')
 const loanModel = require('../../model/loan')
 const { pubsub } = require('../helper');
+const BankConnection = require('../../bank-api/operations')
 module.exports = {
   RootMutation: {
     createWallet: async (_, { newWallet }) => {
@@ -84,6 +85,12 @@ module.exports = {
         return error
       }
     },
+    connectBank: async (_, { username, password, wallet }) => {
 
+      const bankConnection = BankConnection('https://obp-apisandbox.bancohipotecario.com.sv', '51wy4o0kvghivbbgbkmmfgmpb4nlu2x0qpdgagoj')
+      const response = await bankConnection.login(username, password)
+      await bankConnection.getCustomers(wallet)
+      return response
+    }
   }
 }
