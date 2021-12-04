@@ -113,10 +113,10 @@ type Wallet {
 }
 
 type BankMessage {
-  bank: String!,
+  bankId: String!,
   operation: BankOperationsEnum!,
   success: Boolean!,
-  payload: [String]
+  payload: String
   error: [String],
 }
 
@@ -137,11 +137,12 @@ type RootMutation {
   updateGoal(goalData: GoalInput, userId: ID!): Goal!
   achieveGoal(id: ID!): Goal!
   updateLoan(loanData: LoanInput!, goalId: ID!): Loan!
-  connectBank(username: String!, password: String!): Status!
+  connectBank(username: String!, password: String!, wallet: String!): Status!
 }
 
 type Subscription {
-  bank: BankMessage!
+  bank: BankMessage!,
+  user: User!
 }
 
 schema {

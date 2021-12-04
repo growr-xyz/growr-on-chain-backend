@@ -50,6 +50,9 @@ const userSchema = new Schema({
   wallet: {
     type: String,
     required: true
+  },
+  accountIds: {
+    type: [String]
   }
 });
 module.exports = mongoose.model('User', userSchema);
