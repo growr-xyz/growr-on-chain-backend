@@ -31,7 +31,7 @@ const { ethers } = require("ethers");
 
 const provider = new ethers.providers.JsonRpcProvider('https://public-node.testnet.rsk.co', { name: 'rsk-testnet', chainId: 31 });
 
-const walletAddress = '0xaD334dFA23A2b06d31d53092b9E429BB2EeE99A6'
+const walletAddress = '-----'
 
 const main = async () => {
   const signer = await provider.getSigner(walletAddress)
