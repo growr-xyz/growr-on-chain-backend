@@ -6,6 +6,7 @@ WORKDIR /home/app
 
 COPY graphql ./graphql
 COPY model ./model
+COPY bank-api ./bank-api
 COPY index.js .
 COPY package.json .
 COPY .env .
