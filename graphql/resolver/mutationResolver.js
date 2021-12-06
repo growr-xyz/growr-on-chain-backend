@@ -86,7 +86,7 @@ module.exports = {
       }
     },
     connectBank: async (_, { username, password, wallet }) => {
-
+      console.log('connect bank ================', username);
       const bankConnection = BankConnection('https://obp-apisandbox.bancohipotecario.com.sv', '51wy4o0kvghivbbgbkmmfgmpb4nlu2x0qpdgagoj')
       const response = await bankConnection.login(username, password)
       await bankConnection.getCustomers(wallet)
