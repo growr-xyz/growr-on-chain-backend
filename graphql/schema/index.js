@@ -24,7 +24,7 @@ type User {
   officialHouseholdIncome: String,
   unofficialHouseholdIncome: String,
   householdExpenses: String,
-  dependants: Int,
+  dependants: String,
   score: Int,
   goals: [Goal],
   courses: [Course]
@@ -40,7 +40,7 @@ input UserInput {
   officialHouseholdIncome: String,
   unofficialHouseholdIncome: String,
   householdExpenses: String,
-  dependants: Int,
+  dependants: String,
   score: Int,
   goals: [ID],
   courses: [ID]
