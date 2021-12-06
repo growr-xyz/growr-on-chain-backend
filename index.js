@@ -5,14 +5,13 @@
 // tropykus.setComptroller('0xd8f5366b7bbe1275336fc3b929646104379e1d7d');
 
 
-// const mnemonic = "clip close motion iron catalog junk quick duck earn reveal cool put";
+// const mnemonic = "------
 // const derivationPath = `m/44'/60'/0'/0/0`;
 
 
 
 // const main = async () => {
 //   try {
-//     const crbtc = await tropykus.addMarket('TRBTC', true, "0x05c982D1cD43D37CfEd2E3c2a5512B99C13E9e16");
 //     let r = await tropykus.comptroller.allMarkets()
 //     console.log('result ', r)
 //     tropykus.setAccount(mnemonic, derivationPath);
@@ -52,7 +51,7 @@ const { GraphQLServer } = require('graphql-yoga');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-var database = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/peseta`
+const database = process.env.DB_URI ? process.env.DB_URI : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/peseta`
 mongoose.connect(database)
   .then(() => {
     console.log('Connection to DB successful');
