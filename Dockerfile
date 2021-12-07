@@ -8,6 +8,7 @@ COPY graphql ./graphql
 COPY model ./model
 COPY bank-api ./bank-api
 COPY web3-api ./web3-api
+COPY growr-on-chain-smart-contracts ./growr-on-chain-smart-contracts
 COPY index.js .
 COPY package.json .
 COPY .env .
