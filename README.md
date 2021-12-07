@@ -1,4 +1,5 @@
 # Peseta Backend
+2021, developed by the Growr On-chain team for the Bitcoin Bankathon
 
 ## Installation
 
