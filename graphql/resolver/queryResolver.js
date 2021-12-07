@@ -2,6 +2,7 @@ const userModel = require('../../model/user');
 const walletModel = require('../../model/wallet');
 const goalModel = require('../../model/goal');
 const loanModel = require('../../model/loan');
+const RSKConnect = require('../../web3-api/operations')
 
 module.exports = {
   RootQuery: {
@@ -27,6 +28,13 @@ module.exports = {
     loan: async (_, { id }) => {
       const getLoan = await loanModel.findById(id)
       return getLoan
+    },
+
+    pool: async (_, { wallet }) => {
+      console.log('getting landing pools ===== ')
+      const RSKConnection = RSKConnect()
+      await RSKConnection.connectNetwork()
+      return await RSKConnection.getLandingPool(wallet)
     }
   },
 
@@ -50,5 +58,4 @@ module.exports = {
       return await loanModel.findById(parent.loan)
     }
   }
-
 }

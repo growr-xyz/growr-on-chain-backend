@@ -116,8 +116,21 @@ type BankMessage {
   bankId: String!,
   operation: BankOperationsEnum!,
   success: Boolean!,
-  payload: String
+  payload: String,
   error: [String],
+}
+
+type Pool {
+  poolId: Int,
+  minScore: Int,
+  maxScore: Int,
+  apr: Int,
+  maxAmount: Int,
+  riskType: Int
+}
+
+type Status {
+  success: Boolean!
 }
 
 type RootQuery {
@@ -125,10 +138,7 @@ type RootQuery {
   user(id: ID!): User!
   goal(id: ID!): Goal!
   loan(id: ID!): Loan!
-}
-
-type Status {
-  success: Boolean!
+  pool(wallet: String!): Pool!
 }
 
 type RootMutation {
