@@ -1,0 +1,3 @@
+[submodule "growr-on-chain-smart-contracts"]
+	path = growr-on-chain-smart-contracts
+	url = https://github.com/growr-xyz/growr-on-chain-smart-contracts
